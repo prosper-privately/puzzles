@@ -15,11 +15,25 @@ Decrypt enough of the conspirators' messages to convince the police to get invol
 
 **Victory:** When you can read most of the messages clearly, you've cracked the code.
 
+## Instructions
+
+1. Download the puzzle by [clicking here](https://github.com/prosper-privately/puzzles/archive/refs/heads/master.zip)
+2. Unzip the file:
+   - Windows: Right-click → Extract All…
+   - macOS: Double-click the ZIP file
+3. Open the folder `savethedeli`
+4. Look at the encrypted messages in `cipher.txt`. If you don't see that file, you're in the wrong folder!
+5. Look at the instructions in `README.md` (That's this file.)
+   `.md` files are just plain text. You can open them with TextEdit or Notepad.
+6. If you get stuck, look at `hint1.md`. If you are still stuck, continue with `hint2.md` and so on.
+   Some of the hints include multiple files. Always start with the one ending in `.md`.
+
 ## Requirements
 
-- Solving by hand is technically possible, but will likely get very tedious.
-  Basic computer scripting is recommended.
-- The hints that include code are written in the Ruby programming language.
+- Solving by hand is possible, but some may find it tedious.
+- Some of the hints include scripts or web pages to help do the calculations for you.
+- Non-technical folks should stick to the web pages (just open the HTML file in your browser).
+- Technical folks can try out the scripts, or even write their own version.
 
 ## Structure
 
