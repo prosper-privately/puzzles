@@ -1,0 +1,94 @@
+<!-- hint7.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hint 7 — Manual Crib Tester</title>
+    <link rel="stylesheet" href="hint7.css" />
+</head>
+
+<body>
+    <main class="wrap">
+        <h1>Hint 7 — Crib Tester (OTP Reuse, mod 28)</h1>
+
+        <section class="card">
+            <h2>Ciphertexts</h2>
+            <p class="muted">
+                Ciphertexts are hard-coded for this puzzle. Allowed chars: A–Z, space, period.
+            </p>
+
+            <div class="row info">
+                <div><strong>Messages:</strong> <span id="msgCount">0</span></div>
+                <div><strong>Max length:</strong> <span id="maxLen">0</span></div>
+                <div><strong>Current target:</strong> <span id="targetIdx">-</span></div>
+            </div>
+
+            <details class="muted">
+                <summary>Show ciphertexts</summary>
+                <div id="cipherPreview" class="mono cipherList"></div>
+            </details>
+        </section>
+
+        <section class="card">
+            <h2>Try a guess</h2>
+
+            <div class="grid">
+                <div>
+                    <label for="position"><strong>Position</strong> (0-based)</label>
+                    <input id="position" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="e.g. 0" />
+                    <div class="hint">Numbers only. Position is 0-based.</div>
+                </div>
+
+                <div>
+                    <label for="guess"><strong>Guess</strong></label>
+                    <input id="guess" type="text" placeholder='e.g. DELI ' />
+                    <div class="hint">At least 1 character. Allowed: A–Z, space, period.</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <button id="doGuess" class="btn primary" type="button">Guess</button>
+                <button id="nextBtn" class="btn secondary" type="button" disabled>Next</button>
+                <button id="acceptBtn" class="btn good" type="button" disabled>Looks good. Update the key</button>
+                <button id="resetKey" class="btn secondary" type="button">Reset key</button>
+            </div>
+
+            <div id="status" class="status" aria-live="polite"></div>
+        </section>
+
+        <section class="card">
+            <h2>Preview (partial decrypt)</h2>
+            <p class="muted">
+                Underscores are unknown key positions. This preview uses the current key plus the
+                key implied by your guess on the current target message.
+            </p>
+            <p class="muted">
+                If a guess is correct, those characters will look right in all the messages.
+                If only one or two messages look reasonable, then the guess is probably wrong.
+            </p>
+            <p class="muted">
+                Click on the row you want to test your guess with,
+                or click "Next" to cycle through each row.
+            </p>
+            <div id="preview" class="mono preview">(no preview yet)</div>
+        </section>
+
+        <section class="card">
+            <h2>Current Key (in memory)</h2>
+            <p class="muted">
+                Sparse key array. Unknown positions are blank. Refreshing the page resets it.
+            </p>
+            <textarea id="keyView" rows="4" spellcheck="false" class="mono" readonly></textarea>
+        </section>
+
+        <footer class="foot muted">
+            Alphabet: A–Z, space, period. Encryption: C = (P + K) mod 28. Decryption: P = (C − K) mod 28.
+        </footer>
+    </main>
+
+    <script src="hint7.js"></script>
+</body>
+
+</html>
