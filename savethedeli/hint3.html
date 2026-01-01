@@ -1,0 +1,139 @@
+<!-- hint3.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hint 3 Helper — OTP mod 28</title>
+    <link rel="stylesheet" href="hint3.css" />
+</head>
+
+<body>
+    <main class="wrap">
+        <h1>Hint 3 Helper — Character/Number Lookup + Encrypt/Decrypt</h1>
+
+        <p class="muted">
+            This helper uses the puzzle alphabet and mapping: A–Z plus space and period (28 symbols).
+            It’s meant to make the arithmetic in Hint 3 quick to do by hand.
+        </p>
+
+        <section class="card">
+            <h2>Alphabet mapping</h2>
+            <div class="mono mapping">
+                A=0 B=1 C=2 D=3 E=4 F=5 G=6 H=7 I=8 J=9<br />
+                K=10 L=11 M=12 N=13 O=14 P=15 Q=16 R=17 S=18 T=19<br />
+                U=20 V=21 W=22 X=23 Y=24 Z=25 SPACE=26 PERIOD=27
+            </div>
+            <p class="muted">
+                Notes: Use a literal space character for SPACE. Period is <span class="mono">.</span>.
+            </p>
+        </section>
+
+        <!-- 1) Numbers -> Letters -->
+        <section class="card">
+            <h2>1) Numbers → Letters</h2>
+            <p class="muted">
+                Paste one or more <strong>space-separated numbers</strong> (0–27) to convert them into characters.
+                Useful when you’ve computed values like <span class="mono">P1 − P2</span> or key bytes and want to see
+                symbols.
+            </p>
+
+            <label class="lbl" for="n2l_in">Input numbers (space-separated)</label>
+            <textarea id="n2l_in" rows="2" class="mono" placeholder="e.g. 19 7 4 26 17 4 2 8 15 4 27"></textarea>
+
+            <div class="row">
+                <button id="n2l_btn" class="btn">Convert</button>
+                <button id="n2l_clear" class="btn secondary">Clear</button>
+            </div>
+
+            <label class="lbl" for="n2l_out">Output letters</label>
+            <textarea id="n2l_out" rows="2" class="mono" readonly placeholder="(output)"></textarea>
+
+            <div id="n2l_msg" class="msg mono" aria-live="polite"></div>
+        </section>
+
+        <!-- 2) Letters -> Numbers -->
+        <section class="card">
+            <h2>2) Letters → Numbers</h2>
+            <p class="muted">
+                Paste letters using only <strong>A–Z</strong>, <strong>space</strong>, and <strong>period</strong>.
+                This converts each character into its number (0–27). Useful for turning a crib like
+                <span class="mono">THE RECIPE.</span> into numbers.
+            </p>
+
+            <label class="lbl" for="l2n_in">Input letters</label>
+            <textarea id="l2n_in" rows="2" class="mono" placeholder="e.g. THE RECIPE."></textarea>
+
+            <div class="row">
+                <button id="l2n_btn" class="btn">Convert</button>
+                <button id="l2n_clear" class="btn secondary">Clear</button>
+            </div>
+
+            <label class="lbl" for="l2n_out">Output numbers (space-separated)</label>
+            <textarea id="l2n_out" rows="2" class="mono" readonly placeholder="(output)"></textarea>
+
+            <div id="l2n_msg" class="msg mono" aria-live="polite"></div>
+        </section>
+
+        <!-- 3) Encrypt -->
+        <section class="card">
+            <h2>3) Encrypt: Pad numbers + Plaintext → Ciphertext</h2>
+            <p class="muted">
+                Enter pad numbers (0–27) and plaintext letters. Encryption is:
+                <span class="mono">C = (P + K) mod 28</span>.
+                Lengths must match (or the pad must be at least as long as the message).
+            </p>
+
+            <label class="lbl" for="enc_pad">Pad numbers (space-separated)</label>
+            <textarea id="enc_pad" rows="2" class="mono" placeholder="e.g. 8 24 0 9 13"></textarea>
+
+            <label class="lbl" for="enc_plain">Plaintext letters</label>
+            <textarea id="enc_plain" rows="2" class="mono" placeholder="e.g. HELLO"></textarea>
+
+            <div class="row">
+                <button id="enc_btn" class="btn">Encrypt</button>
+                <button id="enc_clear" class="btn secondary">Clear</button>
+            </div>
+
+            <label class="lbl" for="enc_out">Ciphertext letters</label>
+            <textarea id="enc_out" rows="2" class="mono" readonly placeholder="(output)"></textarea>
+
+            <div id="enc_msg" class="msg mono" aria-live="polite"></div>
+        </section>
+
+        <!-- 4) Decrypt -->
+        <section class="card">
+            <h2>4) Decrypt: Pad numbers + Ciphertext → Plaintext</h2>
+            <p class="muted">
+                Enter pad numbers (0–27) and ciphertext letters. Decryption is:
+                <span class="mono">P = (C − K) mod 28</span>.
+                Lengths must match (or the pad must be at least as long as the message).
+            </p>
+
+            <label class="lbl" for="dec_pad">Pad numbers (space-separated)</label>
+            <textarea id="dec_pad" rows="2" class="mono" placeholder="e.g. 8 24 0 9 13"></textarea>
+
+            <label class="lbl" for="dec_cipher">Ciphertext letters</label>
+            <textarea id="dec_cipher" rows="2" class="mono" placeholder="e.g. MALU."></textarea>
+
+            <div class="row">
+                <button id="dec_btn" class="btn">Decrypt</button>
+                <button id="dec_clear" class="btn secondary">Clear</button>
+            </div>
+
+            <label class="lbl" for="dec_out">Plaintext letters</label>
+            <textarea id="dec_out" rows="2" class="mono" readonly placeholder="(output)"></textarea>
+
+            <div id="dec_msg" class="msg mono" aria-live="polite"></div>
+        </section>
+
+        <footer class="foot muted">
+            Tip: spaces are real characters. If your output looks “shifted,” check for missing/extra spaces.
+        </footer>
+    </main>
+
+    <script src="hint3.js"></script>
+</body>
+
+</html>
