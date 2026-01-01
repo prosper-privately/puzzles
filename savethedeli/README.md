@@ -1,4 +1,4 @@
-# The Deli Mystery
+# The Pastrami Incident
 
 Your friend runs a beloved local deli, famous for one thing above all else: the pastrami recipe.
 Lately, he has noticed some suspicious customers lingering too long, asking oddly specific questions, and ordering some odd sandwiches.
@@ -8,6 +8,8 @@ Last night, while taking out the trash, he found shredded slips of paper covered
 So he brought the scraps to you.
 
 The deli is counting on you. Can you break the code and uncover the plan to steal the pastrami recipe?
+
+Did you get here from my blog? If not, maybe check out the [announcement post for this puzzle.](https://prosperprivately.substack.com/p/the-pastrami-incident?utm_source=gh)
 
 ## Your objective
 
